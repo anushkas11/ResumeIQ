@@ -1,0 +1,39 @@
+# =========================
+# ResumeIQ Git Ignore
+# =========================
+
+# ---------- Backend / Maven ----------
+resumeiq-backend/target/
+
+# ---------- IntelliJ ----------
+resumeiq-backend/.idea/
+resumeiq-backend/*.iml
+resumeiq-backend/*.iws
+resumeiq-backend/*.ipr
+
+# ---------- Frontend / Node ----------
+resumeiq-frontend/node_modules/
+resumeiq-frontend/dist/
+
+# ---------- Environment / Secrets ----------
+.env
+.env.*
+!.env.example
+
+resumeiq-backend/.env
+resumeiq-backend/.env.*
+!resumeiq-backend/.env.example
+
+resumeiq-frontend/.env
+resumeiq-frontend/.env.*
+!resumeiq-frontend/.env.example
+
+# ---------- Logs ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db

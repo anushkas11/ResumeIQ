@@ -1,5 +1,6 @@
 package com.resumewise.resumeiq.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import com.resumewise.resumeiq.security.CustomOAuth2UserService;
 import com.resumewise.resumeiq.security.CustomUserDetailsService;
 import com.resumewise.resumeiq.security.JwtAuthenticationFilter;
@@ -30,6 +31,11 @@ public class SecurityConfig {
     private final PasswordEncoder passwordEncoder;
     private final CustomOAuth2UserService customOAuth2UserService;
     private final OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
+
+    // Comma-separated list of allowed frontend origins - set via the
+    // app.cors.allowed-origins property (differs between dev/prod profiles).
+    @Value("${app.cors.allowed-origins:http://localhost:5173,http://localhost:3000}")
+    private String allowedOrigins;
 
     public SecurityConfig(
             JwtAuthenticationFilter jwtAuthenticationFilter,
@@ -68,8 +74,12 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration configuration = new CorsConfiguration();
-        // Add your deployed frontend URL here too once you deploy.
-        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000"));
+        configuration.setAllowedOrigins(
+                List.of(allowedOrigins.split(","))
+                        .stream()
+                        .map(String::trim)
+                        .toList()
+        );
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

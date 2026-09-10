@@ -44,10 +44,14 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- Spring AI: Ollama (local model, e.g. Qwen) -->
+		<!-- Spring AI: OpenAI-compatible ChatClient. This single starter works
+		     for BOTH environments - Ollama exposes an OpenAI-compatible
+		     endpoint locally, and Groq (free, hosted) speaks the same
+		     protocol in production. Only spring.ai.openai.base-url differs
+		     between the two, via Spring profiles. -->
 		<dependency>
 			<groupId>org.springframework.ai</groupId>
-			<artifactId>spring-ai-starter-model-ollama</artifactId>
+			<artifactId>spring-ai-starter-model-openai</artifactId>
 		</dependency>
 
 		<!-- File parsing: extract plain text from uploaded PDF/DOCX resumes -->

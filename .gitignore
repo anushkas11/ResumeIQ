@@ -3,30 +3,31 @@
 # =========================
 
 # ---------- Backend / Maven ----------
-resumeiq-backend/target/
+resumeiq_backend1/resumeiq/target/
 
 # ---------- IntelliJ ----------
-resumeiq-backend/.idea/
-resumeiq-backend/*.iml
-resumeiq-backend/*.iws
-resumeiq-backend/*.ipr
+resumeiq_backend1/.idea/
+resumeiq_backend1/resumeiq/.idea/
+*.iml
+*.iws
+*.ipr
 
 # ---------- Frontend / Node ----------
-resumeiq-frontend/node_modules/
-resumeiq-frontend/dist/
+resumeiq_frontend/resumeiq-frontend/node_modules/
+resumeiq_frontend/resumeiq-frontend/dist/
 
 # ---------- Environment / Secrets ----------
 .env
 .env.*
 !.env.example
 
-resumeiq-backend/.env
-resumeiq-backend/.env.*
-!resumeiq-backend/.env.example
+resumeiq_backend1/resumeiq/.env
+resumeiq_backend1/resumeiq/.env.*
+!resumeiq_backend1/resumeiq/.env.example
 
-resumeiq-frontend/.env
-resumeiq-frontend/.env.*
-!resumeiq-frontend/.env.example
+resumeiq_frontend/resumeiq-frontend/.env
+resumeiq_frontend/resumeiq-frontend/.env.*
+!resumeiq_frontend/resumeiq-frontend/.env.example
 
 # ---------- Logs ----------
 *.log
